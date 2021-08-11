@@ -12,13 +12,6 @@ By considering the terms in the Fibonacci
 sequence whose values do not exceed four million,
 find the sum of the even-valued terms.*/
 
-void printTest(std::vector<int>& n) {
-    for (int i : n)
-    {
-        std::cout << i << " ";
-    }
-    return;
-}
 
 // this function will generate the fibonacci sequence
 // with STARTING TERMS of {1,2} (you could of course start with 0,1, or even 1,1, but for the purposes
@@ -42,7 +35,15 @@ std::vector<int> generateFibsBelowValueLimit(int n) {
     return cache;
 }
 
-int sumEvenFibs(std::vector<int>& sequence) {
+void printTest(const std::vector<int>& n) {
+    for (int i : n)
+    {
+        std::cout << i << " ";
+    }
+    return;
+}
+
+int sumEvenFibs(const std::vector<int>& sequence) {
     int sum = 0;
     for (int i : sequence)
     {
@@ -54,11 +55,13 @@ int sumEvenFibs(std::vector<int>& sequence) {
     return sum;
 }
 
-void main()
+int main()
 {
-    std::vector<int> model = generateFibsBelowValueLimit(30);
+    std::vector<int> model = generateFibsBelowValueLimit(4000000);
 
     printTest(model);
+    std::cout << "\nThe sum of even terms of the Fibonacci sequence generated to the specified term limit is: ";
+    std::cout << "\n" << sumEvenFibs(model);
 
-    return;
+    return 0;
 }
